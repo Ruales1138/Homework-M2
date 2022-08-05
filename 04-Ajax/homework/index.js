@@ -32,11 +32,7 @@ const spanSucces = document.querySelector("#succes")
 
 btnDelete.addEventListener("click", function() {
     let idAmigo = inputDelete.value
-    fetch(`http://localhost:5000/amigos/${idAmigo}`,{
-        method: "DELETE"
-    })
-    .then(res => res.json())
-    .then(data => {
+    fetch(`http://localhost:5000/amigos/${idAmigo}`,{method: "DELETE"}).then(res => res.json()).then(data => {
         inputDelete.value = ""
         spanSucces.innerText = "Borrado"
         showFriends()
