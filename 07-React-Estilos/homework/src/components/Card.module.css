@@ -1,0 +1,31 @@
+.contenedor{
+    border: black solid 2px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: min-content;
+    position: relative;
+    background-color: rgba(0, 255, 106, 0.356);
+}
+
+.infoCont{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn{
+    height: min-content;
+    width: max-content;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border: none;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: red;
+    color: white;
+}
+
