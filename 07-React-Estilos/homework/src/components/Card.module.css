@@ -1,11 +1,11 @@
 .contenedor{
     border: black solid 2px;
+    background-color: rgba(0, 255, 106, 0.356);
     display: flex;
     flex-direction: column;
     width: 400px;
     height: min-content;
     position: relative;
-    background-color: rgba(0, 255, 106, 0.356);
 }
 
 .infoCont{
