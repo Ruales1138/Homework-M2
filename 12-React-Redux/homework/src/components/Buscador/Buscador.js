@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
-import './Buscador.css';
-
-
+import { Link } from "react-router-dom";
+import "./Buscador.css";
+import { addMovieFavorite, getMovies } from "../../actions";
 
 export class Buscador extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ""
+      title: "",
     };
   }
   handleChange(event) {
@@ -17,6 +16,11 @@ export class Buscador extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    this.props.getMovies(this.state.title);
+  }
+
+  handleClick(movie) {
+    this.props.addMovieFavorite(movie);
   }
 
   render() {
@@ -26,7 +30,9 @@ export class Buscador extends Component {
         <h2>Buscador</h2>
         <form className="form-container" onSubmit={(e) => this.handleSubmit(e)}>
           <div>
-            <label className="label" htmlFor="title">Película: </label>
+            <label className="label" htmlFor="title">
+              Película:{" "}
+            </label>
             <input
               type="text"
               id="title"
@@ -38,11 +44,39 @@ export class Buscador extends Component {
           <button type="submit">BUSCAR</button>
         </form>
         <ul>
-         {/* Aqui tienes que escribir tu codigo para mostrar la lista de peliculas */}
+          {this.props.movies.map((movie) => {
+            return (
+              <li>
+                <Link to={`/movie/${movie.imdbID}`}>
+                  <span>{movie.Title}</span>
+                </Link>
+                <button onClick={() =>
+                    this.handleClick({ id: movie.imdbID, Title: movie.Title })
+                  }>ADD</button>
+              </li>
+            );
+          })}
         </ul>
       </div>
     );
   }
 }
 
-export default Buscador;
+const mapStateToProps = (state) => {
+  return {
+    movies: state.movies,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getMovies: (title) => {
+      dispatch(getMovies(title));
+    },
+    addMovieFavorite: (movie) => {
+      dispatch(addMovieFavorite(movie));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Buscador);

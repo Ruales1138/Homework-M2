@@ -5,7 +5,6 @@ import Buscador from "./components/Buscador/Buscador";
 import NavBar from "./components/NavBar/NavBar";
 import { Route } from "react-router-dom";
 import Movie from "./components/Movie/Movie";
-// 1234567
 
 function App() {
   return (
@@ -19,3 +18,4 @@ function App() {
 }
 
 export default App;
+
