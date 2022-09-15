@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { shallow } from 'enzyme';
 import NavBar from './NavBar';
 
-describe('<NavBar />', () => {
+xdescribe('<NavBar />', () => {
     let nav;
     beforeEach(() => {
         nav = shallow(<NavBar />);

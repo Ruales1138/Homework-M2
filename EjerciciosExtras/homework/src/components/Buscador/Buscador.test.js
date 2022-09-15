@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import isReact from 'is-react';
 import * as actions from '../../actions/index'
 
-describe('<Buscador />', () => {
+xdescribe('<Buscador />', () => {
     let store, state;
     const mockStore = configureMockStore([thunk]);
 

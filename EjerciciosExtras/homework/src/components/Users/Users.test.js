@@ -6,7 +6,7 @@ import isReact from 'is-react';
 import * as actions from '../../actions/index'
 
 
-describe('<Users />', () => {
+xdescribe('<Users />', () => {
     let users, store, state;
 
     const mockStore = configureMockStore([thunk]);
