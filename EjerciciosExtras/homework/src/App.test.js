@@ -5,7 +5,7 @@ import App from './App';
 import NavBar from "./components/NavBar/NavBar";
 import { shallow } from 'enzyme'
 
-xdescribe('<App />', () => {
+describe('<App />', () => {
     let app;
     beforeEach(() => {
         app = shallow(<App />);
